@@ -1,15 +1,17 @@
 import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
+import ExperienceSection from '@/components/ExperienceSection';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const Experience = () => {
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
-      <HeroSection />
+      <div className="pt-20">
+        <ExperienceSection />
+      </div>
       <Footer />
     </main>
   );
 };
 
-export default Index;
+export default Experience;
