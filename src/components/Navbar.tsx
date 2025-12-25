@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import logoImage from '@/assets/logo.png';
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Certifications', href: '#certifications' },
-  { name: 'Downloads', href: '#downloads' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Skills', href: '/skills' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Certifications', href: '/certifications' },
+  { name: 'Downloads', href: '/downloads' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,16 +34,22 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logoImage} alt="DJ Logo" className="h-10 w-auto" />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="nav-link text-sm font-medium">
+              <Link
+                key={link.name}
+                to={link.href}
+                className={`nav-link text-sm font-medium ${
+                  location.pathname === link.href ? 'text-primary' : ''
+                }`}
+              >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -58,14 +67,16 @@ const Navbar = () => {
           <div className="md:hidden mt-4 pb-4 border-t border-border pt-4">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  className="nav-link text-sm font-medium"
+                  to={link.href}
+                  className={`nav-link text-sm font-medium ${
+                    location.pathname === link.href ? 'text-primary' : ''
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
