@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import logoImage from '@/assets/logo.png';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -29,9 +30,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold">
-            <span className="text-gradient-primary">D</span>
-            <span className="text-gradient-accent">J</span>
+          <a href="#" className="flex items-center">
+            <img src={logoImage} alt="DJ Logo" className="h-10 w-auto" />
           </a>
 
           {/* Desktop Navigation */}

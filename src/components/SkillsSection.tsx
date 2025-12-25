@@ -1,13 +1,13 @@
-import { Search, Code, Database, FileCode, Settings, Globe, Server, Bot } from 'lucide-react';
+import { Search, Code, Bot } from 'lucide-react';
 
 const skillCategories = [
   {
     title: 'SEO & Digital Marketing',
     icon: Search,
-    color: 'primary',
     skills: [
       {
         name: 'Technical SEO',
+        color: 'primary',
         items: [
           'Core Web Vitals optimization',
           'Site architecture and URL structure',
@@ -19,6 +19,7 @@ const skillCategories = [
       },
       {
         name: 'On-Page SEO',
+        color: 'accent',
         items: [
           'Page-level optimization for search visibility',
           'SEO-focused page layout & structure improvements',
@@ -30,6 +31,7 @@ const skillCategories = [
       },
       {
         name: 'Off-Page SEO',
+        color: 'primary',
         items: [
           'Backlink analysis and audit',
           'Identifying toxic or low-quality links',
@@ -39,6 +41,7 @@ const skillCategories = [
       },
       {
         name: 'Digital Marketing Basics',
+        color: 'accent',
         items: [
           'SEO-focused marketing fundamentals',
           'Understanding of traffic, keywords, and user intent',
@@ -49,10 +52,10 @@ const skillCategories = [
   {
     title: 'Web Development',
     icon: Code,
-    color: 'accent',
     skills: [
       {
         name: 'Vibe Coding / AI-Assisted Development',
+        color: 'primary',
         items: [
           'Building custom websites using Vibe Coding approach',
           'AI-assisted development for faster delivery',
@@ -61,10 +64,12 @@ const skillCategories = [
       },
       {
         name: 'Full-Stack Development',
+        color: 'accent',
         items: ['Custom websites using Django', 'Full-stack applications using MERN Stack'],
       },
       {
         name: 'CMS Development',
+        color: 'primary',
         items: [
           'WordPress (custom themes, basic plugins)',
           'Shopify (store setup, theme customization)',
@@ -75,10 +80,10 @@ const skillCategories = [
   {
     title: 'Web Scraping & Automation',
     icon: Bot,
-    color: 'primary',
     skills: [
       {
         name: 'Python Automation',
+        color: 'primary',
         items: [
           'Web scraping fundamentals using Python',
           'Basic Python automation scripting',
@@ -101,21 +106,14 @@ const SkillsSection = () => {
         </div>
 
         <div className="grid gap-8">
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category) => (
             <div
               key={category.title}
               className="card-elevated p-6 md:p-8 hover:border-primary/50 transition-colors"
             >
               <div className="flex items-center gap-4 mb-6">
-                <div
-                  className={`p-3 rounded-lg ${
-                    category.color === 'primary' ? 'bg-primary/10' : 'bg-accent/10'
-                  }`}
-                >
-                  <category.icon
-                    className={category.color === 'primary' ? 'text-primary' : 'text-accent'}
-                    size={24}
-                  />
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <category.icon className="text-primary" size={24} />
                 </div>
                 <h3 className="text-xl md:text-2xl font-semibold">{category.title}</h3>
               </div>
@@ -124,11 +122,15 @@ const SkillsSection = () => {
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="bg-background/50 rounded-lg p-5 border border-border/50"
+                    className={`rounded-lg p-5 border-2 ${
+                      skill.color === 'primary'
+                        ? 'bg-primary/10 border-primary/30'
+                        : 'bg-accent/10 border-accent/30'
+                    }`}
                   >
                     <h4
                       className={`font-medium mb-3 ${
-                        category.color === 'primary' ? 'text-primary' : 'text-accent'
+                        skill.color === 'primary' ? 'text-primary' : 'text-accent'
                       }`}
                     >
                       {skill.name}
@@ -138,7 +140,7 @@ const SkillsSection = () => {
                         <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                           <span
                             className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${
-                              category.color === 'primary' ? 'bg-primary' : 'bg-accent'
+                              skill.color === 'primary' ? 'bg-primary' : 'bg-accent'
                             }`}
                           />
                           {item}
