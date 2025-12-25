@@ -118,21 +118,21 @@ const ExperienceSection = () => {
 
                 {/* Content */}
                 <div className={`md:[direction:ltr] ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <div className={`rounded-xl p-6 ml-6 md:ml-0 transition-transform hover:-translate-y-1 ${
+                  <div className={`rounded-xl p-6 ml-6 md:ml-0 transition-all duration-300 hover:scale-105 cursor-pointer group ${
                     exp.color === 'primary' 
-                      ? 'bg-primary' 
-                      : 'bg-accent'
+                      ? 'bg-primary hover:shadow-[0_0_40px_rgba(255,87,34,0.3)]' 
+                      : 'bg-accent hover:shadow-[0_0_40px_rgba(200,255,0,0.3)]'
                   }`}>
                     <div className="flex items-start gap-3 mb-4">
-                      <div className={`p-2 rounded-lg shrink-0 ${
-                        exp.color === 'primary' ? 'bg-primary-foreground/20' : 'bg-accent-foreground/20'
+                      <div className={`p-2 rounded-lg shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
+                        exp.color === 'primary' ? 'bg-white/20' : 'bg-black/10'
                       }`}>
-                        <Briefcase className={exp.color === 'primary' ? 'text-primary-foreground' : 'text-accent-foreground'} size={20} />
+                        <Briefcase className={exp.color === 'primary' ? 'text-white' : 'text-black'} size={20} />
                       </div>
                       <div>
-                        <h3 className={`font-semibold text-lg ${exp.color === 'primary' ? 'text-primary-foreground' : 'text-accent-foreground'}`}>{exp.title}</h3>
-                        <p className={`text-sm ${exp.color === 'primary' ? 'text-primary-foreground/80' : 'text-accent-foreground/80'}`}>{exp.company}</p>
-                        <div className={`flex items-center gap-1 text-xs mt-1 ${exp.color === 'primary' ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
+                        <h3 className={`font-bold text-lg ${exp.color === 'primary' ? 'text-white' : 'text-black'}`}>{exp.title}</h3>
+                        <p className={`text-sm ${exp.color === 'primary' ? 'text-white/80' : 'text-black/70'}`}>{exp.company}</p>
+                        <div className={`flex items-center gap-1 text-xs mt-1 ${exp.color === 'primary' ? 'text-white/70' : 'text-black/60'}`}>
                           <MapPin size={12} />
                           {exp.location}
                         </div>
@@ -141,7 +141,7 @@ const ExperienceSection = () => {
 
                     {exp.isCurrent && (
                       <span className={`inline-block px-2 py-1 text-xs rounded mb-4 ${
-                        exp.color === 'primary' ? 'bg-primary-foreground/20 text-primary-foreground' : 'bg-accent-foreground/20 text-accent-foreground'
+                        exp.color === 'primary' ? 'bg-white/20 text-white' : 'bg-black/10 text-black'
                       }`}>
                         Current Position
                       </span>
@@ -150,10 +150,10 @@ const ExperienceSection = () => {
                     <ul className="space-y-2">
                       {exp.responsibilities.map((resp, i) => (
                         <li key={i} className={`text-sm flex items-start gap-2 ${
-                          exp.color === 'primary' ? 'text-primary-foreground/90' : 'text-accent-foreground/90'
+                          exp.color === 'primary' ? 'text-white/90' : 'text-black/80'
                         }`}>
                           <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${
-                            exp.color === 'primary' ? 'bg-primary-foreground/70' : 'bg-accent-foreground/70'
+                            exp.color === 'primary' ? 'bg-white/70' : 'bg-black/50'
                           }`} />
                           {resp}
                         </li>

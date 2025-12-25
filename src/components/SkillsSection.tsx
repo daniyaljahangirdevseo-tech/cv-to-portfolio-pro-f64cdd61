@@ -122,15 +122,15 @@ const SkillsSection = () => {
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className={`rounded-xl p-5 transition-transform hover:-translate-y-1 ${
+                    className={`rounded-xl p-5 transition-all duration-300 hover:scale-105 cursor-pointer group ${
                       skill.color === 'primary'
-                        ? 'bg-primary'
-                        : 'bg-accent'
+                        ? 'bg-primary hover:shadow-[0_0_40px_rgba(255,87,34,0.3)]'
+                        : 'bg-accent hover:shadow-[0_0_40px_rgba(200,255,0,0.3)]'
                     }`}
                   >
                     <h4
-                      className={`font-semibold mb-3 text-lg ${
-                        skill.color === 'primary' ? 'text-primary-foreground' : 'text-accent-foreground'
+                      className={`font-bold mb-3 text-lg ${
+                        skill.color === 'primary' ? 'text-white' : 'text-black'
                       }`}
                     >
                       {skill.name}
@@ -138,11 +138,11 @@ const SkillsSection = () => {
                     <ul className="space-y-2">
                       {skill.items.map((item, i) => (
                         <li key={i} className={`text-sm flex items-start gap-2 ${
-                          skill.color === 'primary' ? 'text-primary-foreground/90' : 'text-accent-foreground/90'
+                          skill.color === 'primary' ? 'text-white/90' : 'text-black/80'
                         }`}>
                           <span
                             className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${
-                              skill.color === 'primary' ? 'bg-primary-foreground/70' : 'bg-accent-foreground/70'
+                              skill.color === 'primary' ? 'bg-white/70' : 'bg-black/50'
                             }`}
                           />
                           {item}
