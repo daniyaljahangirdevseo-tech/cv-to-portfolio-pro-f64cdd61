@@ -122,25 +122,27 @@ const SkillsSection = () => {
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className={`rounded-lg p-5 border-2 ${
+                    className={`rounded-xl p-5 transition-transform hover:-translate-y-1 ${
                       skill.color === 'primary'
-                        ? 'bg-primary/10 border-primary/30'
-                        : 'bg-accent/10 border-accent/30'
+                        ? 'bg-primary'
+                        : 'bg-accent'
                     }`}
                   >
                     <h4
-                      className={`font-medium mb-3 ${
-                        skill.color === 'primary' ? 'text-primary' : 'text-accent'
+                      className={`font-semibold mb-3 text-lg ${
+                        skill.color === 'primary' ? 'text-primary-foreground' : 'text-accent-foreground'
                       }`}
                     >
                       {skill.name}
                     </h4>
                     <ul className="space-y-2">
                       {skill.items.map((item, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                        <li key={i} className={`text-sm flex items-start gap-2 ${
+                          skill.color === 'primary' ? 'text-primary-foreground/90' : 'text-accent-foreground/90'
+                        }`}>
                           <span
                             className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${
-                              skill.color === 'primary' ? 'bg-primary' : 'bg-accent'
+                              skill.color === 'primary' ? 'bg-primary-foreground/70' : 'bg-accent-foreground/70'
                             }`}
                           />
                           {item}
