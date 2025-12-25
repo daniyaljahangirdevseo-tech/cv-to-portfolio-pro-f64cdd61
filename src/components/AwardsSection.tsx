@@ -1,19 +1,19 @@
-import { Trophy, GraduationCap } from 'lucide-react';
+import { Trophy, GraduationCap } from "lucide-react";
 
 const awards = [
   {
-    title: 'U.S. Scholarship Award',
-    date: 'March 2024',
+    title: "U.S. Scholarship Award",
+    date: "March 2024",
     icon: Trophy,
     description:
-      'Recipient of fully-funded U.S. scholarship through College Alumni program, recognizing exceptional academic excellence and demonstrated leadership potential among peer cohort.',
+      "Recipient of fully-funded U.S. scholarship through College Alumni program, recognizing exceptional academic excellence and demonstrated leadership potential among peer cohort.",
   },
   {
-    title: 'Leadership Experience',
-    date: 'Ongoing',
+    title: "Leadership Experience",
+    date: "August 2019 - July 2025",
     icon: GraduationCap,
     description:
-      'Served as Class Representative throughout Matriculation, Intermediate, and Bachelors degree programs, demonstrating consistent commitment to peer communication, academic advocacy, institutional responsibility, and collaborative problem-solving.',
+      "Served as Class Representative throughout Matriculation, Intermediate, and Bachelors degree programs, demonstrating consistent commitment to peer communication, academic advocacy, institutional responsibility, and collaborative problem-solving.",
   },
 ];
 
