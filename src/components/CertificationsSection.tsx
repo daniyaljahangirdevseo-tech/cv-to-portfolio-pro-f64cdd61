@@ -1,0 +1,89 @@
+import { Award, ExternalLink } from 'lucide-react';
+
+const certifications = [
+  {
+    title: 'PTE Academic Certificate',
+    issuer: 'Pearson Test of English',
+    date: '2024',
+    score: 'Score: 65/90',
+    description:
+      'Internationally recognized English language proficiency assessment demonstrating professional-level competency across reading, writing, listening, and speaking. Meets admission requirements for Masters programs in English-speaking countries.',
+  },
+  {
+    title: 'CyberSavvy: Navigating Linux and Essential Cybersecurity',
+    issuer: 'Online Certificate Program',
+    date: '2024',
+    description:
+      'Completed comprehensive 8-module cybersecurity course covering cybersecurity fundamentals, online protection strategies, virtualization concepts, Linux security protocols, OSINT techniques, vulnerability scanning methodologies, and ethical exploitation frameworks.',
+  },
+  {
+    title: 'Full Stack Web Development Virtual Internship',
+    issuer: 'DevelopersHub.co',
+    date: '2024',
+    badge: '6-Week Intensive Program',
+    description:
+      'Hands-on internship specializing in full-stack web development. Gained practical experience building real-time projects utilizing Node.js backend development, RESTful API design and integration, frontend-backend synchronization, database design, and deployment optimization.',
+  },
+  {
+    title: 'Technical SEO Expert Internship',
+    issuer: 'Salam Experts (Digital Marketing Agency)',
+    date: 'March 2024',
+    badge: '3-Month Professional Program',
+    description:
+      'Gained hands-on professional experience in technical SEO optimization and digital marketing strategy. Learned and applied advanced website audit methodologies, technical SEO best practices, site structure optimization, crawlability analysis, and performance metrics interpretation.',
+  },
+];
+
+const CertificationsSection = () => {
+  return (
+    <section id="certifications" className="py-20 px-6">
+      <div className="container mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="section-title">
+            Certifications & <span className="text-gradient-accent">Development</span>
+          </h2>
+          <p className="section-subtitle">Continuous learning and professional growth</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {certifications.map((cert) => (
+            <div
+              key={cert.title}
+              className="card-elevated p-6 hover:border-accent/50 transition-all hover:-translate-y-1 group"
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-accent/10 rounded-lg shrink-0 group-hover:bg-accent/20 transition-colors">
+                  <Award className="text-accent" size={24} />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3 className="font-semibold text-lg leading-tight">{cert.title}</h3>
+                    <span className="text-xs text-muted-foreground font-mono shrink-0">{cert.date}</span>
+                  </div>
+                  <p className="text-primary text-sm mb-2">{cert.issuer}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {cert.score && (
+                      <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded">
+                        {cert.score}
+                      </span>
+                    )}
+                    {cert.badge && (
+                      <span className="px-2 py-1 text-xs bg-primary/10 text-primary rounded">
+                        {cert.badge}
+                      </span>
+                    )}
+                  </div>
+                  
+                  <p className="text-sm text-muted-foreground leading-relaxed">{cert.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default CertificationsSection;
