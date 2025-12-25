@@ -53,47 +53,47 @@ const CertificationsSection = () => {
           {certifications.map((cert) => (
             <div
               key={cert.title}
-              className={`rounded-xl p-6 transition-transform hover:-translate-y-1 group ${
+              className={`rounded-xl p-6 transition-all duration-300 hover:scale-105 cursor-pointer group ${
                 cert.color === 'primary'
-                  ? 'bg-primary'
-                  : 'bg-accent'
+                  ? 'bg-primary hover:shadow-[0_0_40px_rgba(255,87,34,0.3)]'
+                  : 'bg-accent hover:shadow-[0_0_40px_rgba(200,255,0,0.3)]'
               }`}
             >
               <div className="flex items-start gap-4">
-                <div className={`p-3 rounded-lg shrink-0 transition-colors ${
+                <div className={`p-3 rounded-lg shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
                   cert.color === 'primary' 
-                    ? 'bg-primary-foreground/20' 
-                    : 'bg-accent-foreground/20'
+                    ? 'bg-white/20' 
+                    : 'bg-black/10'
                 }`}>
-                  <Award className={cert.color === 'primary' ? 'text-primary-foreground' : 'text-accent-foreground'} size={24} />
+                  <Award className={cert.color === 'primary' ? 'text-white' : 'text-black'} size={24} />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-2 mb-2">
-                    <h3 className={`font-semibold text-lg leading-tight ${cert.color === 'primary' ? 'text-primary-foreground' : 'text-accent-foreground'}`}>{cert.title}</h3>
-                    <span className={`text-xs font-mono shrink-0 ${cert.color === 'primary' ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>{cert.date}</span>
+                    <h3 className={`font-bold text-lg leading-tight ${cert.color === 'primary' ? 'text-white' : 'text-black'}`}>{cert.title}</h3>
+                    <span className={`text-xs font-mono shrink-0 ${cert.color === 'primary' ? 'text-white/70' : 'text-black/60'}`}>{cert.date}</span>
                   </div>
-                  <p className={`text-sm mb-2 ${cert.color === 'primary' ? 'text-primary-foreground/80' : 'text-accent-foreground/80'}`}>
+                  <p className={`text-sm mb-2 ${cert.color === 'primary' ? 'text-white/80' : 'text-black/70'}`}>
                     {cert.issuer}
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-3">
                     {cert.score && (
                       <span className={`px-2 py-1 text-xs rounded ${
-                        cert.color === 'primary' ? 'bg-primary-foreground/20 text-primary-foreground' : 'bg-accent-foreground/20 text-accent-foreground'
+                        cert.color === 'primary' ? 'bg-white/20 text-white' : 'bg-black/10 text-black'
                       }`}>
                         {cert.score}
                       </span>
                     )}
                     {cert.badge && (
                       <span className={`px-2 py-1 text-xs rounded ${
-                        cert.color === 'primary' ? 'bg-primary-foreground/20 text-primary-foreground' : 'bg-accent-foreground/20 text-accent-foreground'
+                        cert.color === 'primary' ? 'bg-white/20 text-white' : 'bg-black/10 text-black'
                       }`}>
                         {cert.badge}
                       </span>
                     )}
                   </div>
                   
-                  <p className={`text-sm leading-relaxed ${cert.color === 'primary' ? 'text-primary-foreground/90' : 'text-accent-foreground/90'}`}>{cert.description}</p>
+                  <p className={`text-sm leading-relaxed ${cert.color === 'primary' ? 'text-white/90' : 'text-black/80'}`}>{cert.description}</p>
                 </div>
               </div>
             </div>
