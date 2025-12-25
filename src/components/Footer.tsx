@@ -1,4 +1,4 @@
-import { Mail, Phone, Linkedin, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -6,12 +6,11 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-2">
-              <span className="text-gradient-primary">Daniyal</span>{' '}
-              <span className="text-gradient-accent">Jahangir</span>
+            <h3 className="text-xl font-bold mb-2 text-primary">
+              Daniyal Jahangir
             </h3>
             <p className="text-sm text-muted-foreground">
-              Technical SEO Expert & Web Developer
+              IT Professional | Digital Optimization & Web Solutions
             </p>
           </div>
 
@@ -44,7 +43,7 @@ const Footer = () => {
 
         <div className="mt-8 pt-6 border-t border-border text-center">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Daniyal Jahangir. All rights reserved.
+            © 2026 Daniyal Jahangir. All rights reserved.
           </p>
         </div>
       </div>
