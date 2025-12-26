@@ -90,8 +90,14 @@ const skillCategories = [
           'Data extraction and simple data analysis workflows',
         ],
       },
+    ],
+  },
+  {
+    title: 'Domain & Hosting Setup',
+    icon: Bot,
+    skills: [
       {
-        name: 'Domain & Hosting Setup',
+        name: 'Server & Domain Management',
         color: 'accent',
         items: [
           'Domain registration and DNS configuration',
@@ -105,6 +111,10 @@ const skillCategories = [
 ];
 
 const SkillsSection = () => {
+  // Separate the last two categories for side-by-side layout
+  const mainCategories = skillCategories.slice(0, 2);
+  const sideBySideCategories = skillCategories.slice(2);
+
   return (
     <section id="skills" className="py-20 px-6 bg-muted/30">
       <div className="container mx-auto">
@@ -116,7 +126,8 @@ const SkillsSection = () => {
         </div>
 
         <div className="grid gap-8">
-          {skillCategories.map((category) => (
+          {/* Main categories - full width */}
+          {mainCategories.map((category) => (
             <div
               key={category.title}
               className="card-elevated p-6 md:p-8 hover:border-primary/50 transition-colors"
@@ -164,6 +175,58 @@ const SkillsSection = () => {
               </div>
             </div>
           ))}
+
+          {/* Side by side categories - Web Scraping & Domain Hosting */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {sideBySideCategories.map((category) => (
+              <div
+                key={category.title}
+                className="card-elevated p-6 md:p-8 hover:border-primary/50 transition-colors"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-3 rounded-lg bg-primary/10">
+                    <category.icon className="text-primary" size={24} />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-semibold">{category.title}</h3>
+                </div>
+
+                <div className="grid gap-6">
+                  {category.skills.map((skill) => (
+                    <div
+                      key={skill.name}
+                      className={`rounded-xl p-5 transition-all duration-300 hover:scale-105 cursor-pointer group ${
+                        skill.color === 'primary'
+                          ? 'bg-primary hover:shadow-[0_0_40px_rgba(255,87,34,0.3)]'
+                          : 'bg-accent hover:shadow-[0_0_40px_rgba(200,255,0,0.3)]'
+                      }`}
+                    >
+                      <h4
+                        className={`font-bold mb-3 text-lg ${
+                          skill.color === 'primary' ? 'text-white' : 'text-black'
+                        }`}
+                      >
+                        {skill.name}
+                      </h4>
+                      <ul className="space-y-2">
+                        {skill.items.map((item, i) => (
+                          <li key={i} className={`text-sm flex items-start gap-2 ${
+                            skill.color === 'primary' ? 'text-white/90' : 'text-black/80'
+                          }`}>
+                            <span
+                              className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${
+                                skill.color === 'primary' ? 'bg-white/70' : 'bg-black/50'
+                              }`}
+                            />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
