@@ -1,4 +1,4 @@
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Code, Sparkles } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 
 const experiences = [
@@ -33,12 +33,30 @@ const experiences = [
       'Maintained empathetic and patient demeanor to ensure positive customer experience and satisfaction levels',
     ],
   },
+  {
+    title: 'Freelance Developer',
+    company: 'Vibe Coding & AI-Assisted Development',
+    location: 'Remote',
+    period: 'Ongoing',
+    isCurrent: true,
+    color: 'primary',
+    isVibeCoding: true,
+    responsibilities: [
+      'Building custom websites using Django framework with full-stack capabilities',
+      'Developing modern web applications using MERN Stack (MongoDB, Express, React, Node.js)',
+      'Leveraging AI-assisted development for faster prototyping and delivery',
+      'Converting ideas and requirements into functional, production-ready web applications',
+      'Passionate about exploring new technologies and creative coding approaches',
+    ],
+  },
 ];
 
 const ExperienceSection = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeCardIndex, setActiveCardIndex] = useState(-1);
   const sectionRef = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,17 +72,31 @@ const ExperienceSection = () => {
       const sectionHeight = sectionRect.height;
       
       // Calculate progress based on section scroll position
-      const startOffset = viewportHeight * 0.5; // Start when section is 50% visible
-      const endOffset = sectionHeight - viewportHeight * 0.3;
+      const startOffset = viewportHeight * 0.3;
+      const endOffset = sectionHeight - viewportHeight * 0.5;
       
       const scrolled = -sectionTop + startOffset;
       const progress = Math.min(Math.max(scrolled / endOffset, 0), 1);
       
       setScrollProgress(progress);
+
+      // Check which card the animated circle has reached
+      cardRefs.current.forEach((cardRef, index) => {
+        if (cardRef) {
+          const cardRect = cardRef.getBoundingClientRect();
+          const timelineCenter = timelineRect.left + timelineRect.width / 2;
+          const cardTop = cardRect.top;
+          const animatedCircleY = timelineRect.top + (progress * timelineRect.height);
+          
+          if (animatedCircleY >= cardTop - 50) {
+            setActiveCardIndex(index);
+          }
+        }
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -79,15 +111,36 @@ const ExperienceSection = () => {
         </div>
 
         <div ref={timelineRef} className="relative">
-          {/* Timeline line */}
+          {/* Timeline line background */}
           <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
           
-          {/* Animated circle */}
+          {/* Animated line that fills as you scroll */}
           <div 
-            className="absolute left-0 md:left-1/2 w-4 h-4 -translate-x-1/2 md:-translate-x-1/2 rounded-full bg-primary border-2 border-primary z-20 transition-all duration-100"
+            className="absolute left-0 md:left-1/2 top-0 w-px bg-primary md:-translate-x-1/2 transition-all duration-100"
+            style={{ 
+              height: `${scrollProgress * 100}%`,
+            }}
+          />
+          
+          {/* Start circle at top */}
+          <div 
+            className="absolute left-0 md:left-1/2 top-0 w-4 h-4 -translate-x-1/2 md:-translate-x-1/2 rounded-full bg-primary border-2 border-primary z-20"
+            style={{ 
+              boxShadow: '0 0 12px hsl(16 100% 57% / 0.6)'
+            }}
+          />
+          
+          {/* Animated circle that moves down */}
+          <div 
+            className="absolute left-0 md:left-1/2 w-3 h-3 -translate-x-1/2 md:-translate-x-1/2 rounded-full z-30 transition-all duration-100"
             style={{ 
               top: `${scrollProgress * 100}%`,
-              boxShadow: '0 0 12px hsl(16 100% 57% / 0.6)'
+              backgroundColor: activeCardIndex >= 0 && experiences[activeCardIndex]?.color === 'accent' 
+                ? 'hsl(var(--accent))' 
+                : 'hsl(var(--primary))',
+              boxShadow: activeCardIndex >= 0 && experiences[activeCardIndex]?.color === 'accent'
+                ? '0 0 12px hsl(75 100% 50% / 0.6)'
+                : '0 0 12px hsl(16 100% 57% / 0.6)'
             }}
           />
 
@@ -95,13 +148,16 @@ const ExperienceSection = () => {
             {experiences.map((exp, index) => (
               <div
                 key={exp.title + exp.company}
+                ref={(el) => (cardRefs.current[index] = el)}
                 className={`relative grid md:grid-cols-2 gap-6 ${
                   index % 2 === 0 ? '' : 'md:[direction:rtl]'
                 }`}
               >
                 {/* Timeline dot */}
-                <div className={`absolute left-0 md:left-1/2 top-0 w-4 h-4 -translate-x-1/2 md:-translate-x-1/2 rounded-full bg-background border-2 z-10 ${
-                  exp.color === 'primary' ? 'border-primary' : 'border-accent'
+                <div className={`absolute left-0 md:left-1/2 top-0 w-4 h-4 -translate-x-1/2 md:-translate-x-1/2 rounded-full z-10 transition-all duration-300 ${
+                  activeCardIndex >= index 
+                    ? exp.color === 'primary' ? 'bg-primary border-primary' : 'bg-accent border-accent'
+                    : 'bg-background border-2 ' + (exp.color === 'primary' ? 'border-primary' : 'border-accent')
                 }`}>
                   {exp.isCurrent && (
                     <span className={`absolute inset-0 rounded-full animate-ping opacity-30 ${
@@ -127,7 +183,11 @@ const ExperienceSection = () => {
                       <div className={`p-2 rounded-lg shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
                         exp.color === 'primary' ? 'bg-white/20' : 'bg-black/10'
                       }`}>
-                        <Briefcase className={exp.color === 'primary' ? 'text-white' : 'text-black'} size={20} />
+                        {exp.isVibeCoding ? (
+                          <Code className={exp.color === 'primary' ? 'text-white' : 'text-black'} size={20} />
+                        ) : (
+                          <Briefcase className={exp.color === 'primary' ? 'text-white' : 'text-black'} size={20} />
+                        )}
                       </div>
                       <div>
                         <h3 className={`font-bold text-lg ${exp.color === 'primary' ? 'text-white' : 'text-black'}`}>{exp.title}</h3>
@@ -140,10 +200,11 @@ const ExperienceSection = () => {
                     </div>
 
                     {exp.isCurrent && (
-                      <span className={`inline-block px-2 py-1 text-xs rounded mb-4 ${
+                      <span className={`inline-flex items-center gap-1 px-2 py-1 text-xs rounded mb-4 ${
                         exp.color === 'primary' ? 'bg-white/20 text-white' : 'bg-black/10 text-black'
                       }`}>
-                        Current Position
+                        {exp.isVibeCoding && <Sparkles size={12} />}
+                        {exp.isVibeCoding ? 'Passion Project' : 'Current Position'}
                       </span>
                     )}
 
