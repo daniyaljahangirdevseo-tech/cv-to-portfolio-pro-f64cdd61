@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import SkillsSection from '@/components/SkillsSection';
+import CompetenciesSection from '@/components/CompetenciesSection';
 import Footer from '@/components/Footer';
 
 const Skills = () => {
@@ -8,6 +9,7 @@ const Skills = () => {
       <Navbar />
       <div className="pt-20">
         <SkillsSection />
+        <CompetenciesSection />
       </div>
       <Footer />
     </main>
