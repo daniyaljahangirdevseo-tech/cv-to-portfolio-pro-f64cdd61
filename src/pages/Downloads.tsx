@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { GraduationCap, Award, FileText, Download, ArrowUpRight } from 'lucide-react';
+import { GraduationCap, Award, FileText, Download, ArrowUpRight, FileDown } from 'lucide-react';
 
 const educationalDegrees = [
   {
@@ -61,8 +61,42 @@ const Downloads = () => {
               Downloads
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Access my educational degrees and professional certifications
+              Access my resume, educational degrees and professional certifications
             </p>
+          </div>
+
+          {/* Resume Section */}
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <FileDown className="text-primary" size={28} />
+              <h2 className="text-2xl font-bold text-primary">
+                Resume
+              </h2>
+            </div>
+            
+            <a
+              href="#"
+              download
+              className="group flex items-center justify-between p-6 rounded-xl bg-primary transition-all duration-300 hover:scale-105 cursor-pointer hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-white/20">
+                  <FileText size={24} className="text-primary-foreground" />
+                </div>
+                <div>
+                  <p className="font-bold text-lg text-primary-foreground">
+                    Professional Resume
+                  </p>
+                  <p className="text-sm text-primary-foreground/70">
+                    Download my complete professional resume (PDF)
+                  </p>
+                </div>
+              </div>
+              <ArrowUpRight 
+                size={24} 
+                className="text-primary-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" 
+              />
+            </a>
           </div>
 
           {/* Educational Degrees Section */}

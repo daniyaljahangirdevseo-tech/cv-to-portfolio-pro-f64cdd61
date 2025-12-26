@@ -90,6 +90,16 @@ const skillCategories = [
           'Data extraction and simple data analysis workflows',
         ],
       },
+      {
+        name: 'Domain & Hosting Setup',
+        color: 'accent',
+        items: [
+          'Domain registration and DNS configuration',
+          'Web hosting setup and management',
+          'SSL certificate installation and configuration',
+          'Server deployment and maintenance basics',
+        ],
+      },
     ],
   },
 ];
