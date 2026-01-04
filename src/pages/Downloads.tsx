@@ -6,22 +6,22 @@ const educationalDegrees = [
   {
     degree: 'Matriculation',
     documents: [
-      { type: 'Certificate', link: '#' },
-      { type: 'Transcript', link: '#' },
+      { type: 'Certificate', link: '/documents/Matriculation_Certificate.pdf' },
+      { type: 'Transcript', link: '/documents/Matriculation_Transcript.pdf' },
     ],
   },
   {
     degree: 'Intermediate',
     documents: [
-      { type: 'Certificate', link: '#' },
-      { type: 'Transcript', link: '#' },
+      { type: 'Certificate', link: '/documents/Intermediate_Certificate.pdf' },
+      { type: 'Transcript', link: '/documents/Intermediate_Transcript.pdf' },
     ],
   },
   {
     degree: 'Bachelor of Science (BS)',
     documents: [
-      { type: 'Certificate', link: '#' },
-      { type: 'Transcript', link: '#' },
+      { type: 'Certificate', link: '/documents/BS_Certificate.pdf' },
+      { type: 'Transcript', link: '/documents/BS_Transcript.pdf' },
     ],
   },
 ];
@@ -75,7 +75,7 @@ const Downloads = () => {
             </div>
             
             <a
-              href="#"
+              href="/documents/Daniyal_Jahangir_Resume.pdf"
               download
               className="group flex items-center justify-between p-6 rounded-xl bg-primary transition-all duration-300 hover:scale-105 cursor-pointer hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]"
             >
