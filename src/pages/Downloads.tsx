@@ -58,7 +58,7 @@ const certifications = [
   {
     name: 'CyberSavvy: Navigating Linux and Essential Cybersecurity',
     type: 'Certificate',
-    link: '/documents/CyberSavvy_Certificate.png',
+    link: '/documents/CyberSavvy_Certificate.jpg',
   },
   {
     name: 'Full Stack Web Development Remote Internship',
@@ -68,7 +68,7 @@ const certifications = [
   {
     name: 'PTE Academic Certificate',
     type: 'Certificate',
-    link: '/documents/PTE_Academic_Certificate.jpg',
+    link: '/documents/PTE_Academic_Certificate.png',
   },
   {
     name: 'Technical SEO Expert Internship',
@@ -104,33 +104,61 @@ const Downloads = () => {
               <div className="flex items-center gap-3 mb-8">
                 <FileDown className="text-primary" size={28} />
                 <h2 className="text-2xl font-bold text-primary">
-                  Resume
+                  Resumes
                 </h2>
               </div>
 
-              <a
-                href="/documents/Daniyal_Jahangir_Resume.pdf"
-                download
-                className="group flex items-center justify-between p-6 rounded-xl bg-primary transition-all duration-300 hover:scale-105 cursor-pointer hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-lg bg-white/20">
-                    <FileText size={24} className="text-primary-foreground" />
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Europass Resume - Primary Color */}
+                <a
+                  href="/documents/Daniyal-Jahangir_Europass-Resume.pdf"
+                  download
+                  className="group flex items-center justify-between p-6 rounded-xl bg-primary transition-all duration-300 hover:scale-105 cursor-pointer hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-lg bg-white/20">
+                      <FileText size={24} className="text-primary-foreground" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-lg text-primary-foreground">
+                        ATS Friendly Resume
+                      </p>
+                      <span className="inline-block px-2 py-0.5 mt-1 text-xs font-medium bg-white/20 text-white rounded">
+                        With Europass Logo
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-bold text-lg text-primary-foreground">
-                      Professional Resume
-                    </p>
-                    <p className="text-sm text-primary-foreground/70">
-                      Download my complete professional resume (PDF)
-                    </p>
+                  <ArrowUpRight
+                    size={24}
+                    className="text-primary-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
+                </a>
+
+                {/* Standard Resume - Accent Color */}
+                <a
+                  href="/documents/Daniyal_Jahangir_Resume.pdf"
+                  download
+                  className="group flex items-center justify-between p-6 rounded-xl bg-accent transition-all duration-300 hover:scale-105 cursor-pointer hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-lg bg-black/10">
+                      <FileText size={24} className="text-accent-foreground" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-lg text-accent-foreground">
+                        ATS Friendly Resume
+                      </p>
+                      <span className="inline-block px-2 py-0.5 mt-1 text-xs font-medium bg-black/10 text-black/80 rounded">
+                        Standard
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <ArrowUpRight
-                  size={24}
-                  className="text-primary-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-                />
-              </a>
+                  <ArrowUpRight
+                    size={24}
+                    className="text-accent-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
+                </a>
+              </div>
             </div>
 
             {/* Educational Degrees Section */}
