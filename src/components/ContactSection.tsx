@@ -117,8 +117,8 @@ const ContactSection = () => {
           </div>
 
           {/* Right - Profile Image & QR Code */}
-          <div className="hidden lg:flex flex-row items-center justify-center gap-6">
-            <div className="relative group shrink-0">
+          <div className="flex flex-col md:flex-row lg:flex-row items-center justify-center gap-6 mt-8 lg:mt-0">
+            <div className="relative group shrink-0 hidden lg:block">
               <div className="w-72 h-[380px] rounded-xl overflow-hidden border-4 border-primary/30 transition-all duration-300 group-hover:border-primary">
                 <img
                   src={profileImage}
@@ -132,7 +132,7 @@ const ContactSection = () => {
             </div>
 
             {/* WhatsApp QR Code Card */}
-            <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl shadow-xl border border-primary/20 hover:border-primary transition-all duration-300 transform hover:scale-105 shrink-0">
+            <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl shadow-xl border border-primary/20 hover:border-primary transition-all duration-300 transform hover:scale-105 shrink-0 mx-auto lg:mx-0">
               <h3 className="text-center font-bold text-base mb-2 text-primary">Scan to Chat</h3>
               <div className="bg-white p-2 rounded-xl">
                 <img

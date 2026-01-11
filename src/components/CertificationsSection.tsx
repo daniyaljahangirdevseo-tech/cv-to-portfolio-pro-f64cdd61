@@ -66,8 +66,8 @@ const CertificationsSection = () => {
                   <Award className={cert.color === 'primary' ? 'text-white' : 'text-black'} size={24} />
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <h3 className={`font-bold text-lg leading-tight ${cert.color === 'primary' ? 'text-white' : 'text-black'}`}>{cert.title}</h3>
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1 sm:gap-2 mb-2">
+                    <h3 className={`font-bold text-base sm:text-lg leading-tight ${cert.color === 'primary' ? 'text-white' : 'text-black'}`}>{cert.title}</h3>
                     <span className={`text-xs font-mono shrink-0 ${cert.color === 'primary' ? 'text-white/70' : 'text-black/60'}`}>{cert.date}</span>
                   </div>
                   <p className={`text-sm mb-2 ${cert.color === 'primary' ? 'text-white/80' : 'text-black/70'}`}>

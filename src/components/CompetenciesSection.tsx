@@ -1,12 +1,12 @@
-import { 
-  Lightbulb, 
-  Brain, 
-  Clock, 
-  Users, 
-  MessageSquare, 
-  HeartHandshake, 
-  Ear, 
-  Briefcase 
+import {
+  Lightbulb,
+  Brain,
+  Clock,
+  Users,
+  MessageSquare,
+  HeartHandshake,
+  Ear,
+  Briefcase
 } from 'lucide-react';
 
 const competencies = [
@@ -35,12 +35,12 @@ const CompetenciesSection = () => {
           {competencies.map((comp, index) => (
             <div
               key={comp.name}
-              className="card-elevated p-5 text-center group hover:border-accent/50 transition-all hover:-translate-y-1"
+              className="card-elevated p-3 md:p-5 text-center group hover:border-accent/50 transition-all hover:-translate-y-1 h-full flex flex-col items-center justify-center"
             >
-              <div className="inline-flex p-3 bg-accent/10 rounded-lg mb-4 group-hover:bg-accent/20 transition-colors">
+              <div className="inline-flex p-3 bg-accent/10 rounded-lg mb-3 md:mb-4 group-hover:bg-accent/20 transition-colors">
                 <comp.icon className="text-accent" size={24} />
               </div>
-              <h3 className="font-semibold text-sm md:text-base mb-2">{comp.name}</h3>
+              <h3 className="font-semibold text-xs sm:text-sm md:text-base mb-1 md:mb-2 w-full break-words hyphens-auto leading-tight">{comp.name}</h3>
               <p className="text-xs text-muted-foreground hidden md:block">{comp.description}</p>
             </div>
           ))}

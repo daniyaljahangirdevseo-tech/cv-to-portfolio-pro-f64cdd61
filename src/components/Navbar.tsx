@@ -28,9 +28,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : 'bg-transparent'
+        }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -44,9 +43,8 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className={`nav-link text-sm font-medium ${
-                  location.pathname === link.href ? 'text-primary' : ''
-                }`}
+                className={`nav-link text-sm font-medium ${location.pathname === link.href ? 'text-primary' : ''
+                  }`}
               >
                 {link.name}
               </Link>
@@ -62,25 +60,33 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border pt-4">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className={`nav-link text-sm font-medium ${
-                    location.pathname === link.href ? 'text-primary' : ''
+        {/* Mobile Navigation Overlay */}
+        <div
+          className={`fixed inset-0 bg-background/95 backdrop-blur-lg z-40 md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+            }`}
+        >
+          <div className="flex flex-col items-center justify-center h-full gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className={`text-2xl font-medium transition-colors hover:text-primary ${location.pathname === link.href ? 'text-primary' : 'text-foreground'
                   }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            {/* Close button at bottom for easier reach or just rely on top X */}
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-8 p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+            >
+              <X size={32} />
+            </button>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

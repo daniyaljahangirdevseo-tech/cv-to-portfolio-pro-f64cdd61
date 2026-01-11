@@ -75,10 +75,10 @@ const HeroSection = () => {
               <p className="text-primary font-mono text-sm mb-4">Hello, I'm</p>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 min-h-[60px] md:min-h-[72px]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 min-h-[60px] md:min-h-[72px] whitespace-nowrap">
               <span className="text-foreground">{displayedName.split(' ')[0]} </span>
               <span className="text-gradient-primary">{displayedName.split(' ')[1] || ''}</span>
-              <span className="ml-1 inline-block w-1 h-8 md:h-12 bg-primary animate-blink align-middle"></span>
+              <span className="ml-1 inline-block w-1 h-6 md:h-12 bg-primary animate-blink align-middle"></span>
             </h1>
 
             <div className="h-8 md:h-10 mb-6 overflow-hidden">
@@ -94,25 +94,26 @@ const HeroSection = () => {
             </p>
 
             {/* Contact Info */}
-            <div className="opacity-0 animate-fade-up delay-400 flex flex-wrap justify-center lg:justify-start gap-4 mb-8 text-sm text-muted-foreground">
+            <div className="opacity-0 animate-fade-up delay-400 flex flex-nowrap justify-center lg:justify-start gap-2 sm:gap-4 mb-8 text-[11px] sm:text-sm text-muted-foreground overflow-x-auto no-scrollbar">
 
               {/* Email */}
               <a
                 href="mailto:daniyaljahangir.dev.seo@gmail.com"
-                className="flex items-center gap-2 hover:text-primary transition-colors"
+                className="flex items-center gap-1.5 hover:text-primary transition-colors whitespace-nowrap"
               >
-                <Mail size={16} className="text-primary" />
+                <Mail size={14} className="text-primary shrink-0" />
                 <span className="hidden sm:inline">daniyaljahangir.dev.seo@gmail.com</span>
-                <span className="sm:hidden">Email</span>
+                <span className="sm:hidden">Email Me</span>
               </a>
 
               {/* Separator */}
-              <span className="select-none text-muted-foreground">|</span>
+              <span className="select-none text-muted-foreground opacity-50">|</span>
 
               {/* Location */}
-              <span className="flex items-center gap-2 hover:text-accent transition-colors cursor-default">
-                <MapPin size={14} className="text-accent" />
-                <span>Rangpura Chowk, Sialkot, Punjab 51310, Pakistan</span>
+              <span className="flex items-center gap-1.5 hover:text-accent transition-colors cursor-default whitespace-nowrap">
+                <MapPin size={14} className="text-accent shrink-0" />
+                <span className="hidden sm:inline">Rangpura Chowk, Sialkot, Punjab 51310, Pakistan</span>
+                <span className="sm:hidden">Sialkot, Pakistan</span>
               </span>
 
             </div>
