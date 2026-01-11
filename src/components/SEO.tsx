@@ -4,6 +4,7 @@ interface SEOProps {
     title: string;
     description: string;
     canonical: string;
+    keywords?: string;
     ogImage?: string;
     ogType?: string;
 }
@@ -12,6 +13,7 @@ const SEO = ({
     title,
     description,
     canonical,
+    keywords,
     ogImage = 'https://daniyaljahangir.vercel.app/og-image.png',
     ogType = 'website'
 }: SEOProps) => {
@@ -23,6 +25,7 @@ const SEO = ({
             {/* Basic Meta Tags */}
             <title>{title}</title>
             <meta name="description" content={description} />
+            {keywords && <meta name="keywords" content={keywords} />}
             <meta name="author" content={author} />
 
             {/* Canonical URL */}
