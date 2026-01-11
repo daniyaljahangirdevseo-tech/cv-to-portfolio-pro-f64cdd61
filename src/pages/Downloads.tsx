@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { GraduationCap, Award, FileText, Download, ArrowUpRight, FileDown } from 'lucide-react';
+import { GraduationCap, Award, FileText, Download, ArrowUpRight, FileDown, Languages } from 'lucide-react';
 
 const educationalDegrees = [
   {
@@ -22,7 +22,34 @@ const educationalDegrees = [
     documents: [
       { type: 'Certificate', link: '/documents/BS_Certificate.pdf' },
       { type: 'Transcript', link: '/documents/BS_Transcript.pdf' },
+      { type: 'Detailed Marks Certificate (DMC)', link: '/documents/BS_DMC.pdf' },
     ],
+  },
+];
+
+const lettersOfRecommendation = [
+  {
+    title: 'Letter of Recommendation - Head of Department',
+    issuedBy: 'Head of Department (HOD)',
+    link: '/documents/LOR_HOD.pdf',
+  },
+  {
+    title: 'Letter of Recommendation - Final Year Project Supervisor',
+    issuedBy: 'FYP Supervisor',
+    link: '/documents/LOR_FYP_Supervisor.pdf',
+  },
+  {
+    title: 'Letter of Recommendation - Assistant Professor',
+    issuedBy: 'Assistant Professor',
+    link: '/documents/LOR_Assistant_Professor.pdf',
+  },
+];
+
+const englishProficiency = [
+  {
+    title: 'English Proficiency Letter',
+    issuedBy: 'Registrar Office',
+    link: '/documents/English Proficiency Letter.pdf',
   },
 ];
 
@@ -30,7 +57,7 @@ const certifications = [
   {
     name: 'CyberSavvy: Navigating Linux and Essential Cybersecurity',
     type: 'Certificate',
-    link: '/documents/PTE_Academic_Certificate.jpg',
+    link: '/documents/CyberSavvy_Certificate.png',
   },
   {
     name: 'Full Stack Web Development Remote Internship',
@@ -40,7 +67,7 @@ const certifications = [
   {
     name: 'PTE Academic Certificate',
     type: 'Certificate',
-    link: '/documents/CyberSavvy_Certificate.png',
+    link: '/documents/PTE_Academic_Certificate.jpg',
   },
   {
     name: 'Technical SEO Expert Internship',
@@ -61,7 +88,7 @@ const Downloads = () => {
               Downloads
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Access my resume, educational degrees and professional certifications
+              Access my resume, educational degrees, and professional certifications
             </p>
           </div>
 
@@ -108,47 +135,137 @@ const Downloads = () => {
               </h2>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {educationalDegrees.map((item, index) => (
-                <div key={index} className="grid grid-cols-1 md:grid-cols-[200px_1fr_1fr] gap-4 items-center">
+                <div key={index} className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 items-center">
                   {/* Degree Name */}
                   <div className="text-foreground font-semibold">
                     {item.degree}
                   </div>
 
                   {/* Document Cards */}
-                  {item.documents.map((doc, docIndex) => (
-                    <a
-                      key={docIndex}
-                      href={doc.link}
-                      download
-                      className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${doc.type === 'Certificate'
-                        ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
-                        : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
-                        }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <FileText
-                          size={20}
-                          className={doc.type === 'Certificate' ? 'text-primary-foreground' : 'text-accent-foreground'}
-                        />
-                        <div>
-                          <p className={`font-semibold ${doc.type === 'Certificate' ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
-                            {doc.type}
-                          </p>
-                          <p className={`text-sm ${doc.type === 'Certificate' ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
-                            {item.degree}
-                          </p>
-                        </div>
-                      </div>
-                      <ArrowUpRight
-                        size={20}
-                        className={`transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${doc.type === 'Certificate' ? 'text-primary-foreground' : 'text-accent-foreground'
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {item.documents.map((doc, docIndex) => (
+                      <a
+                        key={docIndex}
+                        href={doc.link}
+                        download
+                        className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${docIndex % 2 === 0
+                          ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
+                          : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
                           }`}
-                      />
-                    </a>
-                  ))}
+                      >
+                        <div className="flex items-center gap-3">
+                          <FileText
+                            size={20}
+                            className={docIndex % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
+                          />
+                          <div>
+                            <p className={`font-semibold line-clamp-1 ${docIndex % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
+                              {doc.type}
+                            </p>
+                            <p className={`text-sm ${docIndex % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
+                              {item.degree}
+                            </p>
+                          </div>
+                        </div>
+                        <ArrowUpRight
+                          size={20}
+                          className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${docIndex % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
+                            }`}
+                        />
+                      </a>
+                    ))}
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Letters of Recommendation Section */}
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <FileDown className="text-primary" size={28} />
+              <h2 className="text-2xl font-bold text-primary">
+                Letters of Recommendation
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {lettersOfRecommendation.map((lor, index) => (
+                <a
+                  key={index}
+                  href={lor.link}
+                  download
+                  className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
+                    ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
+                    : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
+                    }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <FileText
+                      size={20}
+                      className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
+                    />
+                    <div>
+                      <p className={`font-semibold line-clamp-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
+                        {lor.issuedBy}
+                      </p>
+                      <p className={`text-sm ${index % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
+                        Letter of Recommendation
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowUpRight
+                    size={20}
+                    className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
+                      }`}
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* English Proficiency Section */}
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <Languages className="text-primary" size={28} />
+              <h2 className="text-2xl font-bold text-primary">
+                English Proficiency
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {englishProficiency.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.link}
+                  download
+                  className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
+                      ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
+                      : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
+                    }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <FileText
+                      size={20}
+                      className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
+                    />
+                    <div>
+                      <p className={`font-semibold line-clamp-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
+                        {item.title}
+                      </p>
+                      <p className={`text-sm ${index % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
+                        {item.issuedBy}
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowUpRight
+                    size={20}
+                    className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
+                      }`}
+                  />
+                </a>
               ))}
             </div>
           </div>
