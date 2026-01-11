@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import { GraduationCap, Award, FileText, Download, ArrowUpRight, FileDown, Languages } from 'lucide-react';
 
 const educationalDegrees = [
@@ -78,245 +79,252 @@ const certifications = [
 
 const Downloads = () => {
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
-      <div className="pt-28 pb-20 px-6">
-        <div className="container mx-auto max-w-5xl">
-          {/* Page Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Downloads
-            </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Access my resume, educational degrees, and professional certifications
-            </p>
-          </div>
-
-          {/* Resume Section */}
-          <div className="mb-16">
-            <div className="flex items-center gap-3 mb-8">
-              <FileDown className="text-primary" size={28} />
-              <h2 className="text-2xl font-bold text-primary">
-                Resume
-              </h2>
+    <>
+      <SEO
+        title="Download Resume & Academic Documents"
+        description="Download Daniyal Jahangir's professional resume, academic degrees, transcripts, and verified certifications in one place. Contact via email or WhatsApp."
+        canonical="https://daniyaljahangir.vercel.app/downloads"
+      />
+      <main className="min-h-screen bg-background">
+        <Navbar />
+        <div className="pt-28 pb-20 px-6">
+          <div className="container mx-auto max-w-5xl">
+            {/* Page Header */}
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Downloads
+              </h1>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Access my resume, educational degrees, and professional certifications
+              </p>
             </div>
 
-            <a
-              href="/documents/Daniyal_Jahangir_Resume.pdf"
-              download
-              className="group flex items-center justify-between p-6 rounded-xl bg-primary transition-all duration-300 hover:scale-105 cursor-pointer hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]"
-            >
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-lg bg-white/20">
-                  <FileText size={24} className="text-primary-foreground" />
-                </div>
-                <div>
-                  <p className="font-bold text-lg text-primary-foreground">
-                    Professional Resume
-                  </p>
-                  <p className="text-sm text-primary-foreground/70">
-                    Download my complete professional resume (PDF)
-                  </p>
-                </div>
+            {/* Resume Section */}
+            <div className="mb-16">
+              <div className="flex items-center gap-3 mb-8">
+                <FileDown className="text-primary" size={28} />
+                <h2 className="text-2xl font-bold text-primary">
+                  Resume
+                </h2>
               </div>
-              <ArrowUpRight
-                size={24}
-                className="text-primary-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-              />
-            </a>
-          </div>
 
-          {/* Educational Degrees Section */}
-          <div className="mb-16">
-            <div className="flex items-center gap-3 mb-8">
-              <GraduationCap className="text-primary" size={28} />
-              <h2 className="text-2xl font-bold text-primary">
-                Educational Degrees
-              </h2>
-            </div>
-
-            <div className="space-y-6">
-              {educationalDegrees.map((item, index) => (
-                <div key={index} className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 items-center">
-                  {/* Degree Name */}
-                  <div className="text-foreground font-semibold">
-                    {item.degree}
+              <a
+                href="/documents/Daniyal_Jahangir_Resume.pdf"
+                download
+                className="group flex items-center justify-between p-6 rounded-xl bg-primary transition-all duration-300 hover:scale-105 cursor-pointer hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-lg bg-white/20">
+                    <FileText size={24} className="text-primary-foreground" />
                   </div>
-
-                  {/* Document Cards */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {item.documents.map((doc, docIndex) => (
-                      <a
-                        key={docIndex}
-                        href={doc.link}
-                        download
-                        className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${docIndex % 2 === 0
-                          ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
-                          : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
-                          }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <FileText
-                            size={20}
-                            className={docIndex % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
-                          />
-                          <div>
-                            <p className={`font-semibold line-clamp-1 ${docIndex % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
-                              {doc.type}
-                            </p>
-                            <p className={`text-sm ${docIndex % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
-                              {item.degree}
-                            </p>
-                          </div>
-                        </div>
-                        <ArrowUpRight
-                          size={20}
-                          className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${docIndex % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
-                            }`}
-                        />
-                      </a>
-                    ))}
+                  <div>
+                    <p className="font-bold text-lg text-primary-foreground">
+                      Professional Resume
+                    </p>
+                    <p className="text-sm text-primary-foreground/70">
+                      Download my complete professional resume (PDF)
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Letters of Recommendation Section */}
-          <div className="mb-16">
-            <div className="flex items-center gap-3 mb-8">
-              <FileDown className="text-primary" size={28} />
-              <h2 className="text-2xl font-bold text-primary">
-                Letters of Recommendation
-              </h2>
+                <ArrowUpRight
+                  size={24}
+                  className="text-primary-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                />
+              </a>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {lettersOfRecommendation.map((lor, index) => (
-                <a
-                  key={index}
-                  href={lor.link}
-                  download
-                  className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
-                    ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
-                    : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
-                    }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <FileText
-                      size={20}
-                      className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
-                    />
-                    <div>
-                      <p className={`font-semibold line-clamp-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
-                        {lor.issuedBy}
-                      </p>
-                      <p className={`text-sm ${index % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
-                        Letter of Recommendation
-                      </p>
+            {/* Educational Degrees Section */}
+            <div className="mb-16">
+              <div className="flex items-center gap-3 mb-8">
+                <GraduationCap className="text-primary" size={28} />
+                <h2 className="text-2xl font-bold text-primary">
+                  Educational Degrees
+                </h2>
+              </div>
+
+              <div className="space-y-6">
+                {educationalDegrees.map((item, index) => (
+                  <div key={index} className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 items-center">
+                    {/* Degree Name */}
+                    <div className="text-foreground font-semibold">
+                      {item.degree}
+                    </div>
+
+                    {/* Document Cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {item.documents.map((doc, docIndex) => (
+                        <a
+                          key={docIndex}
+                          href={doc.link}
+                          download
+                          className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${docIndex % 2 === 0
+                            ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
+                            : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
+                            }`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <FileText
+                              size={20}
+                              className={docIndex % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
+                            />
+                            <div>
+                              <p className={`font-semibold line-clamp-1 ${docIndex % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
+                                {doc.type}
+                              </p>
+                              <p className={`text-sm ${docIndex % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
+                                {item.degree}
+                              </p>
+                            </div>
+                          </div>
+                          <ArrowUpRight
+                            size={20}
+                            className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${docIndex % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
+                              }`}
+                          />
+                        </a>
+                      ))}
                     </div>
                   </div>
-                  <ArrowUpRight
-                    size={20}
-                    className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
-                      }`}
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* English Proficiency Section */}
-          <div className="mb-16">
-            <div className="flex items-center gap-3 mb-8">
-              <Languages className="text-primary" size={28} />
-              <h2 className="text-2xl font-bold text-primary">
-                English Proficiency
-              </h2>
+                ))}
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {englishProficiency.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.link}
-                  download
-                  className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
+            {/* Letters of Recommendation Section */}
+            <div className="mb-16">
+              <div className="flex items-center gap-3 mb-8">
+                <FileDown className="text-primary" size={28} />
+                <h2 className="text-2xl font-bold text-primary">
+                  Letters of Recommendation
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {lettersOfRecommendation.map((lor, index) => (
+                  <a
+                    key={index}
+                    href={lor.link}
+                    download
+                    className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
                       ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
                       : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
-                    }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <FileText
-                      size={20}
-                      className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
-                    />
-                    <div>
-                      <p className={`font-semibold line-clamp-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
-                        {item.title}
-                      </p>
-                      <p className={`text-sm ${index % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
-                        {item.issuedBy}
-                      </p>
-                    </div>
-                  </div>
-                  <ArrowUpRight
-                    size={20}
-                    className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
                       }`}
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Certifications & Development Section */}
-          <div>
-            <div className="flex items-center gap-3 mb-8">
-              <Award className="text-primary" size={28} />
-              <h2 className="text-2xl font-bold text-primary">
-                Certifications & Development
-              </h2>
+                  >
+                    <div className="flex items-center gap-3">
+                      <FileText
+                        size={20}
+                        className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
+                      />
+                      <div>
+                        <p className={`font-semibold line-clamp-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
+                          {lor.issuedBy}
+                        </p>
+                        <p className={`text-sm ${index % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
+                          Letter of Recommendation
+                        </p>
+                      </div>
+                    </div>
+                    <ArrowUpRight
+                      size={20}
+                      className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
+                        }`}
+                    />
+                  </a>
+                ))}
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {certifications.map((cert, index) => (
-                <a
-                  key={index}
-                  href={cert.link}
-                  download
-                  className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
-                    ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
-                    : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
-                    }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <Download
-                      size={20}
-                      className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
-                    />
-                    <div>
-                      <p className={`font-semibold ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
-                        {cert.name}
-                      </p>
-                      <p className={`text-sm ${index % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
-                        {cert.type}
-                      </p>
-                    </div>
-                  </div>
-                  <ArrowUpRight
-                    size={20}
-                    className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
+            {/* English Proficiency Section */}
+            <div className="mb-16">
+              <div className="flex items-center gap-3 mb-8">
+                <Languages className="text-primary" size={28} />
+                <h2 className="text-2xl font-bold text-primary">
+                  English Proficiency
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {englishProficiency.map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.link}
+                    download
+                    className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
+                      ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
+                      : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
                       }`}
-                  />
-                </a>
-              ))}
+                  >
+                    <div className="flex items-center gap-3">
+                      <FileText
+                        size={20}
+                        className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
+                      />
+                      <div>
+                        <p className={`font-semibold line-clamp-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
+                          {item.title}
+                        </p>
+                        <p className={`text-sm ${index % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
+                          {item.issuedBy}
+                        </p>
+                      </div>
+                    </div>
+                    <ArrowUpRight
+                      size={20}
+                      className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
+                        }`}
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Certifications & Development Section */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <Award className="text-primary" size={28} />
+                <h2 className="text-2xl font-bold text-primary">
+                  Certifications & Development
+                </h2>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                {certifications.map((cert, index) => (
+                  <a
+                    key={index}
+                    href={cert.link}
+                    download
+                    className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
+                      ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
+                      : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
+                      }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <Download
+                        size={20}
+                        className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
+                      />
+                      <div>
+                        <p className={`font-semibold ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
+                          {cert.name}
+                        </p>
+                        <p className={`text-sm ${index % 2 === 0 ? 'text-primary-foreground/70' : 'text-accent-foreground/70'}`}>
+                          {cert.type}
+                        </p>
+                      </div>
+                    </div>
+                    <ArrowUpRight
+                      size={20}
+                      className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
+                        }`}
+                    />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </>
   );
 };
 
