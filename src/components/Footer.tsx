@@ -23,11 +23,11 @@ const Footer = () => {
               <span className="hidden sm:inline">Email</span>
             </a>
             <a
-              href="tel:+923187582288"
+              href="https://wa.me/message/3ORKWJWZWV4KA1"
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone size={16} />
-              <span className="hidden sm:inline">Phone</span>
+              <span className="hidden sm:inline">WhatsApp</span>
             </a>
             <a
               href="https://linkedin.com/in/daniyal-jahangir-9a0601369"

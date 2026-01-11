@@ -8,31 +8,33 @@ import { User, GraduationCap, Briefcase, Target, Heart } from 'lucide-react';
 const educationTimeline = [
   {
     degree: 'Bachelor of Science in Information Technology',
-    institution: 'University of Sialkot',
-    period: '2020 – 2024',
+    institution: 'University of Gujrat, Affiliated Campus: Govt. Murray College, Sialkot',
+    period: '2020 - 2024',
     description: 'Comprehensive study of IT fundamentals, programming, web development, and cybersecurity.',
   },
   {
     degree: 'Intermediate (FSc Pre-Engineering)',
-    institution: 'Government College Sialkot',
-    period: '2018 – 2020',
+    institution: 'Punjab College of Boys, Sialkot',
+    period: '2018 - 2021',
     description: 'Foundation in mathematics, physics, and engineering principles.',
   },
   {
     degree: 'Matriculation (Science)',
-    institution: 'Allied School Sialkot',
-    period: '2016 – 2018',
+    institution: 'Govt. Pilot Higher Secondary School, Sialkot',
+    period: '2017 - 2019',
     description: 'Strong academic foundation with focus on science and mathematics.',
   },
 ];
 
 const interests = [
   'Web Development & Design',
-  'Search Engine Optimization',
+  'Search Engine Optimization & Marketing',
   'Artificial Intelligence',
-  'Cybersecurity',
+  'Problem Solving',
   'Tech Innovation',
   'Continuous Learning',
+  'Vibe Coding',
+  'Prompt Engineering',
 ];
 
 const About = () => {
@@ -41,7 +43,7 @@ const About = () => {
       <Navbar />
       <div className="pt-20">
         <CareerObjective />
-        
+
         {/* Personal Introduction Section */}
         <section className="py-16 px-6 bg-card/30">
           <div className="container mx-auto max-w-5xl">
@@ -49,32 +51,32 @@ const About = () => {
               <User className="text-primary" size={28} />
               <h2 className="text-2xl font-bold text-primary">About Me</h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  I'm <span className="text-foreground font-semibold">Daniyal Jahangir</span>, 
-                  a passionate IT professional from Sialkot, Pakistan. With a strong foundation in 
-                  Information Technology and hands-on experience in Technical SEO and Web Development, 
+                  I'm <span className="text-foreground font-semibold">Daniyal Jahangir</span>,
+                  a passionate IT professional from Sialkot, Pakistan. With a strong foundation in
+                  Information Technology and hands-on experience in Technical SEO and Web Development,
                   I thrive on solving complex problems and creating impactful digital solutions.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  My journey in technology began with curiosity and has evolved into a career focused 
-                  on helping businesses grow their online presence through optimized websites and 
-                  strategic SEO implementations. I combine technical expertise with creative thinking 
+                  My journey in technology began with curiosity and has evolved into a career focused
+                  on helping businesses grow their online presence through optimized websites and
+                  strategic SEO implementations. I combine technical expertise with creative thinking
                   to deliver results that matter.
                 </p>
               </div>
-              
+
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  As a fresh graduate, I bring enthusiasm, adaptability, and a hunger for learning. 
-                  I've worked on real-world projects including AI-assisted development, full-stack 
+                  As a fresh graduate, I bring enthusiasm, adaptability, and a hunger for learning.
+                  I've worked on real-world projects including AI-assisted development, full-stack
                   applications, and comprehensive SEO strategies for various clients.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  I believe in continuous improvement and staying updated with the latest industry 
-                  trends. Whether it's mastering a new framework or optimizing a website for better 
+                  I believe in continuous improvement and staying updated with the latest industry
+                  trends. Whether it's mastering a new framework or optimizing a website for better
                   performance, I approach every challenge with dedication and precision.
                 </p>
               </div>
@@ -89,10 +91,10 @@ const About = () => {
               <GraduationCap className="text-primary" size={28} />
               <h2 className="text-2xl font-bold text-primary">Education</h2>
             </div>
-            
+
             <div className="space-y-6">
               {educationTimeline.map((edu, index) => (
-                <div 
+                <div
                   key={index}
                   className="group relative pl-8 border-l-2 border-primary/30 hover:border-primary transition-colors"
                 >
@@ -118,10 +120,10 @@ const About = () => {
               <Heart className="text-primary" size={28} />
               <h2 className="text-2xl font-bold text-primary">Interests & Passions</h2>
             </div>
-            
+
             <div className="flex flex-wrap gap-3">
               {interests.map((interest, index) => (
-                <span 
+                <span
                   key={index}
                   className="px-5 py-3 bg-card rounded-full text-foreground font-medium border border-border hover:border-primary hover:text-primary transition-all duration-300 cursor-default"
                 >

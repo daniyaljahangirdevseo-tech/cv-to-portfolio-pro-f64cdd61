@@ -30,22 +30,22 @@ const certifications = [
   {
     name: 'CyberSavvy: Navigating Linux and Essential Cybersecurity',
     type: 'Certificate',
-    link: '#',
+    link: '/documents/PTE_Academic_Certificate.jpg',
   },
   {
     name: 'Full Stack Web Development Virtual Internship',
     type: 'Certificate',
-    link: '#',
+    link: '/documents/FullStack_Certificate.png',
   },
   {
     name: 'PTE Academic Certificate',
     type: 'Certificate',
-    link: '#',
+    link: '/documents/CyberSavvy_Certificate.png',
   },
   {
     name: 'Technical SEO Expert Internship',
     type: 'Certificate',
-    link: '#',
+    link: '/documents/Technical_SEO_Certificate.png',
   },
 ];
 
@@ -73,7 +73,7 @@ const Downloads = () => {
                 Resume
               </h2>
             </div>
-            
+
             <a
               href="/documents/Daniyal_Jahangir_Resume.pdf"
               download
@@ -92,9 +92,9 @@ const Downloads = () => {
                   </p>
                 </div>
               </div>
-              <ArrowUpRight 
-                size={24} 
-                className="text-primary-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" 
+              <ArrowUpRight
+                size={24}
+                className="text-primary-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
               />
             </a>
           </div>
@@ -107,7 +107,7 @@ const Downloads = () => {
                 Educational Degrees
               </h2>
             </div>
-            
+
             <div className="space-y-4">
               {educationalDegrees.map((item, index) => (
                 <div key={index} className="grid grid-cols-1 md:grid-cols-[200px_1fr_1fr] gap-4 items-center">
@@ -115,23 +115,22 @@ const Downloads = () => {
                   <div className="text-foreground font-semibold">
                     {item.degree}
                   </div>
-                  
+
                   {/* Document Cards */}
                   {item.documents.map((doc, docIndex) => (
                     <a
                       key={docIndex}
                       href={doc.link}
                       download
-                      className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${
-                        doc.type === 'Certificate'
+                      className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${doc.type === 'Certificate'
                           ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
                           : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center gap-3">
-                        <FileText 
-                          size={20} 
-                          className={doc.type === 'Certificate' ? 'text-primary-foreground' : 'text-accent-foreground'} 
+                        <FileText
+                          size={20}
+                          className={doc.type === 'Certificate' ? 'text-primary-foreground' : 'text-accent-foreground'}
                         />
                         <div>
                           <p className={`font-semibold ${doc.type === 'Certificate' ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
@@ -142,11 +141,10 @@ const Downloads = () => {
                           </p>
                         </div>
                       </div>
-                      <ArrowUpRight 
-                        size={20} 
-                        className={`transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
-                          doc.type === 'Certificate' ? 'text-primary-foreground' : 'text-accent-foreground'
-                        }`} 
+                      <ArrowUpRight
+                        size={20}
+                        className={`transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${doc.type === 'Certificate' ? 'text-primary-foreground' : 'text-accent-foreground'
+                          }`}
                       />
                     </a>
                   ))}
@@ -163,23 +161,22 @@ const Downloads = () => {
                 Certifications & Development
               </h2>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert, index) => (
                 <a
                   key={index}
                   href={cert.link}
                   download
-                  className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${
-                    index % 2 === 0
+                  className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
                       ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
                       : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Download 
-                      size={20} 
-                      className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'} 
+                    <Download
+                      size={20}
+                      className={index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}
                     />
                     <div>
                       <p className={`font-semibold ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'}`}>
@@ -190,11 +187,10 @@ const Downloads = () => {
                       </p>
                     </div>
                   </div>
-                  <ArrowUpRight 
-                    size={20} 
-                    className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
-                      index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
-                    }`} 
+                  <ArrowUpRight
+                    size={20}
+                    className={`flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${index % 2 === 0 ? 'text-primary-foreground' : 'text-accent-foreground'
+                      }`}
                   />
                 </a>
               ))}

@@ -1,7 +1,70 @@
+import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 import profileImage from '@/assets/profile.png';
 
+const roles = [
+  "Technical SEO Expert",
+  "Full Stack Web Developer",
+  "AI Vibe Coder",
+  "Digital Marketing Expert",
+  "Web Scrapper & AI Automation",
+  "Off-Page SEO Expert",
+  "On-Page SEO Expert",
+];
+
 const HeroSection = () => {
+  const [displayedName, setDisplayedName] = useState('');
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const fullName = "Daniyal Jahangir";
+
+  // Typing effect for name
+  useEffect(() => {
+    let index = 0;
+    let isDeleting = false;
+    let timeout: NodeJS.Timeout;
+
+    const type = () => {
+      if (!isDeleting) {
+        if (index < fullName.length) {
+          index++;
+          setDisplayedName(fullName.slice(0, index));
+          timeout = setTimeout(type, 150); // Typing speed
+        } else {
+          isDeleting = true;
+          timeout = setTimeout(type, 3000); // Pause before deleting
+        }
+      } else {
+        if (index > 0) {
+          index--;
+          setDisplayedName(fullName.slice(0, index));
+          timeout = setTimeout(type, 100); // Deleting speed
+        } else {
+          isDeleting = false;
+          timeout = setTimeout(type, 500); // Pause before re-typing
+        }
+      }
+    };
+
+    // Initial start
+    timeout = setTimeout(type, 500);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // Role rotation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFadingOut(true);
+      setTimeout(() => {
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+        setIsFadingOut(false);
+      }, 500); // Wait for fade out animation
+    }, 4000); // Change role every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 pb-16 px-6">
       <div className="container mx-auto">
@@ -11,40 +74,49 @@ const HeroSection = () => {
             <div className="opacity-0 animate-fade-up">
               <p className="text-primary font-mono text-sm mb-4">Hello, I'm</p>
             </div>
-            
-            <h1 className="opacity-0 animate-fade-up delay-100 text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              <span className="text-foreground">Daniyal </span>
-              <span className="text-gradient-primary">Jahangir</span>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 min-h-[60px] md:min-h-[72px]">
+              <span className="text-foreground">{displayedName.split(' ')[0]} </span>
+              <span className="text-gradient-primary">{displayedName.split(' ')[1] || ''}</span>
+              <span className="ml-1 inline-block w-1 h-8 md:h-12 bg-primary animate-blink align-middle"></span>
             </h1>
-            
-            <h2 className="opacity-0 animate-fade-up delay-200 text-xl md:text-2xl text-muted-foreground font-medium mb-6">
-              Technical SEO Expert & Web Developer
-            </h2>
-            
+
+            <div className="h-8 md:h-10 mb-6 overflow-hidden">
+              <h2 className={`text-xl md:text-2xl text-muted-foreground font-medium ${isFadingOut ? 'animate-fade-out-right' : 'animate-fade-in-left'}`}>
+                {roles[roleIndex]}
+              </h2>
+            </div>
+
             <p className="opacity-0 animate-fade-up delay-300 text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-              A motivated Information Technology graduate with hands-on experience in technical SEO, 
-              web development, and AI-assisted development, seeking opportunities to learn, contribute, 
+              A motivated Information Technology graduate with hands-on experience in technical SEO,
+              web development, and AI-assisted development, seeking opportunities to learn, contribute,
               and grow in dynamic technical environments.
             </p>
 
             {/* Contact Info */}
-            <div className="opacity-0 animate-fade-up delay-400 flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
+            <div className="opacity-0 animate-fade-up delay-400 flex flex-wrap justify-center lg:justify-start gap-4 mb-8 text-sm text-muted-foreground">
+
+              {/* Email */}
               <a
                 href="mailto:daniyaljahangir.dev.seo@gmail.com"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Mail size={16} className="text-primary" />
                 <span className="hidden sm:inline">daniyaljahangir.dev.seo@gmail.com</span>
                 <span className="sm:hidden">Email</span>
               </a>
-              <a
-                href="tel:+923187582288"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Phone size={16} className="text-primary" />
-                <span>+92 318 7582288</span>
-              </a>
+
+              {/* Separator */}
+              <span className="select-none text-muted-foreground">|</span>
+
+              {/* Location */}
+              <span className="flex items-center gap-2 hover:text-accent transition-colors cursor-default">
+                <MapPin size={14} className="text-accent" />
+                <span>Rangpura Chowk, Sialkot, Punjab 51310, Pakistan</span>
+              </span>
+
             </div>
+
 
             <div className="opacity-0 animate-fade-up delay-500 flex flex-wrap justify-center lg:justify-start gap-4">
               <a
@@ -57,17 +129,14 @@ const HeroSection = () => {
                 Connect on LinkedIn
               </a>
               <a
-                href="#experience"
-                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
+                href="https://wa.me/message/3ORKWJWZWV4KA1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 bg-gradient-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
               >
-                View Experience
+                <Phone size={16} />
+                Connect on Whatsapp
               </a>
-            </div>
-
-            {/* Location */}
-            <div className="opacity-0 animate-fade-up delay-500 mt-8 flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground">
-              <MapPin size={14} className="text-accent" />
-              <span>Rangpura Chowk, Sialkot, Punjab 51310, Pakistan</span>
             </div>
           </div>
 

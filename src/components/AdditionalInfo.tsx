@@ -7,7 +7,7 @@ const highlights = [
   },
   {
     icon: Rocket,
-    text: 'Strong technical portfolio of completed web projects and optimization case studies',
+    text: 'Gaining practical experience in web development projects and learning optimization techniques',
   },
   {
     icon: Sparkles,
