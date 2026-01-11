@@ -11,7 +11,7 @@ const highlights = [
   },
   {
     icon: Sparkles,
-    text: 'Excellent problem-solving abilities with demonstrated focus on delivering efficient and scalable solutions',
+    text: 'Good problem-solving abilities with demonstrated focus on delivering efficient and scalable solutions',
   },
   {
     icon: BookOpen,

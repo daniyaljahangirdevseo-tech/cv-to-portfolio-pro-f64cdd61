@@ -33,7 +33,7 @@ const certifications = [
     link: '/documents/PTE_Academic_Certificate.jpg',
   },
   {
-    name: 'Full Stack Web Development Virtual Internship',
+    name: 'Full Stack Web Development Remote Internship',
     type: 'Certificate',
     link: '/documents/FullStack_Certificate.png',
   },
@@ -123,8 +123,8 @@ const Downloads = () => {
                       href={doc.link}
                       download
                       className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${doc.type === 'Certificate'
-                          ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
-                          : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
+                        ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
+                        : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
                         }`}
                     >
                       <div className="flex items-center gap-3">
@@ -169,8 +169,8 @@ const Downloads = () => {
                   href={cert.link}
                   download
                   className={`group flex items-center justify-between p-5 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${index % 2 === 0
-                      ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
-                      : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
+                    ? 'bg-primary hover:shadow-[0_0_30px_rgba(255,87,34,0.4)]'
+                    : 'bg-accent hover:shadow-[0_0_30px_rgba(200,255,0,0.4)]'
                     }`}
                 >
                   <div className="flex items-center gap-3">
