@@ -12,7 +12,7 @@ const SEO = ({
     title,
     description,
     canonical,
-    ogImage = 'https://daniyaljahangir.vercel.app/og-image.jpg',
+    ogImage = 'https://daniyaljahangir.vercel.app/og-image.png',
     ogType = 'website'
 }: SEOProps) => {
     const siteName = 'Daniyal Jahangir Portfolio';
@@ -23,14 +23,17 @@ const SEO = ({
             {/* Basic Meta Tags */}
             <title>{title}</title>
             <meta name="description" content={description} />
+            <meta name="author" content={author} />
+
+            {/* Canonical URL */}
             <link rel="canonical" href={canonical} />
 
-            {/* Open Graph Tags */}
+            {/* Open Graph Tags - Complete Set */}
             <meta property="og:title" content={title} />
-            <meta property="og:description" content={description} />
             <meta property="og:type" content={ogType} />
             <meta property="og:url" content={canonical} />
             <meta property="og:image" content={ogImage} />
+            <meta property="og:description" content={description} />
             <meta property="og:site_name" content={siteName} />
             <meta property="og:locale" content="en_US" />
             <meta property="article:author" content={author} />
@@ -40,6 +43,7 @@ const SEO = ({
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={ogImage} />
+            <meta name="twitter:creator" content="@daniyaljahangir" />
         </Helmet>
     );
 };
